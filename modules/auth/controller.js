@@ -9,6 +9,12 @@ export async function registerUser(req, res) {
     
     const SALT_ROUNDS = 10
 
+    if (!name || !email || !password) {
+      return res.status(400).json({
+        error: { message: "Missing required fields"},
+      })
+    }
+    
     const user = await User.create({
       name,
       email,
