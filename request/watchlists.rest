@@ -1,0 +1,31 @@
+### CREATE new Watchlist
+POST http://localhost:5000/api/watchlists
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzkwMzV9.Uvf6LUbQm92ctg5FOBnqQgERoGnZJqJ7uYd6a4mvn_k
+Content-Type: application/json
+
+{
+  "name": "Watchlater"
+}
+
+### GET all Watchlist created by User
+GET http://localhost:5000/api/watchlists
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzkwMzV9.Uvf6LUbQm92ctg5FOBnqQgERoGnZJqJ7uYd6a4mvn_k
+Content-Type: application/json
+
+### GET Watchlist by its ID (single)
+GET http://localhost:5000/api/watchlists/68beddb2db8d312ec71f3bf7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzkwMzV9.Uvf6LUbQm92ctg5FOBnqQgERoGnZJqJ7uYd6a4mvn_k
+Content-Type: application/json
+
+### UPDATE Watchlist name by it's ID
+PUT http://localhost:5000/api/watchlists/68beddb2db8d312ec71f3bf7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzkwMzV9.Uvf6LUbQm92ctg5FOBnqQgERoGnZJqJ7uYd6a4mvn_k
+Content-Type: application/json
+
+{
+  "name": "More Watchlater Movies"
+}
+
+### DELETE Watchlist by its ID
+DELETE http://localhost:5000/api/watchlists/68bdda5f86046341c116434c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmU5NDczOGIzM2E0Y2ZhZGY3MjQzNyIsImVtYWlsIjoicmF5QGdtYWlsLmNvbSIsImlhdCI6MTc1NzMyMDMxNn0.8oiy8Lf5l_ai7BqVBHQKbcYxY0Me7JXk5rIJv-1Q7m4

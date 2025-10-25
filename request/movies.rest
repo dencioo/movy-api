@@ -1,0 +1,9 @@
+### Sync Movies (this requires Auth)
+POST http://localhost:5000/api/movies/sync
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzg3OTN9.J7i7y3kRqwx1evXNeUppQsDjc_7O3HQoaTFsc3Mz9NM
+
+### GET all movies that's been sync
+GET http://localhost:5000/api/movies
+
+### GET one movie by its ID
+GET http://localhost:5000/api/movies/1007734
