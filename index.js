@@ -41,6 +41,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/movies', movieRoutes);
 app.use('/api/watchlists', watchlistRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to MovyAPI — visit /api/health to check status.');
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
