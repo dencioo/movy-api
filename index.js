@@ -14,10 +14,16 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/movyapi'
-
+const allowedOrigins = [
+  "https://movy-browser.onrender.com",
+  "http://localhost:5173",
+]
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(helmet());
 
 try {
