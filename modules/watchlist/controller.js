@@ -1,4 +1,6 @@
+import mongoose from 'mongoose';
 import { Watchlist } from '../../models/watchlistModel.js';
+import { Movie } from '../../models/movieModel.js';
 
 export async function createWatchlist(req, res) {
   try {
@@ -149,24 +151,60 @@ export async function addMovieToWatchlist(req, res) {
     const { movieId } = req.body;
     const userId = req.user.id;
 
-    const watchlist = await Watchlist.findOneAndUpdate(
-      {_id: id, user: userId },
-      { $addToSet: { movies: movieId}},
-      { new: true }
-    ).populate("movies");
-
-    if (!watchlist) {
-      return res.status(404).json({
-        error: "Couldn't find the watchlist"
+    // Validate the movie id
+    if (!movieId) {
+      return res.status(400).json({
+        error: "movieId is required"
       })
     }
 
+    // Check if movieId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(movieId)) {
+      return res.status(400).json({
+        error: "Invalid movieId format"
+      })
+    }
+
+    // Check if the movie exist in the database
+    const movieExisting = await Movie.findById(movieId);
+
+    if (!movieExisting) {
+      return res.status(404).json({
+        error: "Movie not found in database"
+      })
+    }
+
+    const watchlist = await Watchlist.findOne({_id: id, user: userId });
+
+    if (!watchlist) {
+      return res.status(404).json({
+        error: "Watchlist not found or your don't have permission"
+      })
+    }
+
+    // Check if movie is already in the watchlist
+    const movieAlreadyExists = watchlist.movies.some(
+      m => m.toString() === movieId
+    )
+
+    if (movieAlreadyExists) {
+      return res.status(400).json({
+        error: "Movie is already in this watchlist"
+      })
+    }
+
+    // Add movie to watchlist
+    const updatedWatchlist = await Watchlist.findOneAndUpdate(
+      {_id: id, user: userId},
+      {$addToSet: {movies: movieId}},
+      {new: true}
+    ).populate("movies");
+
     return res.status(200).json({
-      message: "Movie added to the watchlist",
-      watchlist
+      message: "Movie added to the watchlist succesfully",
+      watchlist: updatedWatchlist
     })
   } catch (error) {
-    console.error(error);
     return res.status(500).json({
       error: "Failed to add the movie"
     }
