@@ -54,3 +54,35 @@ export async function syncMovies(req, res) {
     message: `${moviesFromTMDB.length} movies synced succesfully!`
   })
 }
+
+export async function syncSingleMovie(req, res) {
+  try {
+    const {tmdbId, title, releaseDate, overview, posterPath, voteAverage} = req.body;
+
+    if (!tmdbId || !title) {
+      return res.status(400).json({
+        error: "tmbdId and title are required"
+      });
+    }
+
+    const movie = await Movie.findOneAndUpdate(
+      { tmdbId },
+      {
+        tmdbId,
+        title,
+        releaseDate,
+        overview,
+        posterPath,
+        voteAverage
+      },
+      { upsert: true, new: true}
+    );
+
+    return res.status(200).json(movie);
+  } catch (error) {
+    console.error('Error syncing single movie', error);
+    return res.status(500).json({
+      error: "Failed to sync movie"
+    })
+  }
+} 
