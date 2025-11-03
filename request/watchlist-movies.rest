@@ -1,12 +1,12 @@
 ### ADD Movie to a watchlist
-POST http://localhost:5000/api/watchlists/68beddb2db8d312ec71f3bf7/movies
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzkyNDN9.FB4ewkThjfNdKYragRGwhO1YW9er6roLAPsdBTFU52U
+POST http://localhost:5000/api/watchlists/69081102722c80afebf197bb/movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDYyNDdkYjRmNDBiOWEwNTY2ZjZmYSIsImVtYWlsIjoicmFuZG9tQGdtYWlsLmNvbSIsImlhdCI6MTc2MjA5NDE2Nn0.APNmmh66yxIXxkVmghlDTnA2szyrMmcBsV-w270dwcE
 Content-Type: application/json
 
 {
-  "movieId": "68bdda5f86046341c116434c"
+    "movieId": "6908cdb2f25fc01b77d5135f"
 }
 
 ### Remove movie from Watchlist
-DELETE http://localhost:5000/api/watchlists/68bdda5f86046341c116434c/movies/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzkyNDN9.FB4ewkThjfNdKYragRGwhO1YW9er6roLAPsdBTFU52U
+DELETE http://localhost:5000/api/watchlists/6904d3969e4bea1a1f84a7c0/movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkZjYyZGI4ZDMxMmVjNzFmM2MwYyIsImVtYWlsIjoiamVuQGdtYWlsLmNvbSIsImlhdCI6MTc2MjA4NjI1OH0.RsEBPBK1qC9jOtyu8ahUo-dEB6hJK1W9IPWIZzgKU18

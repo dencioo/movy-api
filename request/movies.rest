@@ -1,9 +1,23 @@
 ### Sync Movies (this requires Auth)
 POST http://localhost:5000/api/movies/sync
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzg3OTN9.J7i7y3kRqwx1evXNeUppQsDjc_7O3HQoaTFsc3Mz9NM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDYyNDdkYjRmNDBiOWEwNTY2ZjZmYSIsImVtYWlsIjoicmFuZG9tQGdtYWlsLmNvbSIsImlhdCI6MTc2MjA5NDE2Nn0.APNmmh66yxIXxkVmghlDTnA2szyrMmcBsV-w270dwcE
+
+### Sync a single Movie (requires auth)
+POST http://localhost:5000/api/movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDYyNDdkYjRmNDBiOWEwNTY2ZjZmYSIsImVtYWlsIjoicmFuZG9tQGdtYWlsLmNvbSIsImlhdCI6MTc2MjA5NDE2Nn0.APNmmh66yxIXxkVmghlDTnA2szyrMmcBsV-w270dwcE
+Content-Type: application/json
+
+{
+  "tmdbId": 603692,
+  "title": "John Wick: Chapter 4",
+  "releaseDate": "2023-03-22",
+  "overview": "John Wick uncovers a path to defeating The High Table.",
+  "posterPath": "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+  "voteAverage": 8.0
+}
 
 ### GET all movies that's been sync
 GET http://localhost:5000/api/movies
 
 ### GET one movie by its ID
-GET http://localhost:5000/api/movies/1007734
+GET http://localhost:5000/api/movies/755898
