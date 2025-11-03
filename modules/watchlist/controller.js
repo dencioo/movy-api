@@ -217,6 +217,12 @@ export async function removeMovieToWatchlist(req, res) {
     const { id, movieId } = req.params;
     const userId = req.user.id;
 
+    if (!mongoose.Types.ObjectId.isValid(movieId)) {
+      return res.status(400),json({
+        error: "Invalid movieId format"
+      })
+    }
+
     const watchlist = await Watchlist.findOneAndUpdate(
       {_id: id, user: userId},
       { $pull: {
@@ -224,6 +230,12 @@ export async function removeMovieToWatchlist(req, res) {
       }},
       { new: true }
     ).populate("movies");
+
+    if (!watchlist) {
+      return res.status(404).json({
+        error: "Watchlist not found"
+      })
+    }
 
     return res.status(200).json({
       success: {
