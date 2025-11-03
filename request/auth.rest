@@ -13,11 +13,11 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "jen@gmail.com",
+  "email": "random@gmail.com",
   "password": "pw1"
 } 
 
 
 ### Access Protected Route (add the token from login)
 GET http://localhost:5000/api/protected
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YmVkYzllZGI4ZDMxMmVjNzFmM2JkZCIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NTczMzg3OTN9.J7i7y3kRqwx1evXNeUppQsDjc_7O3HQoaTFsc3Mz9NM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDYyNDdkYjRmNDBiOWEwNTY2ZjZmYSIsImVtYWlsIjoicmFuZG9tQGdtYWlsLmNvbSIsImlhdCI6MTc2MjA5NDE2Nn0.APNmmh66yxIXxkVmghlDTnA2szyrMmcBsV-w270dwcE
