@@ -103,7 +103,7 @@ export async function renameWatchlist(req, res) {
     }
 
     return res.status(200).json({
-      succes: {
+      success: {
         message: "Renamed your watchlist successfully",
         watchlist
       }
@@ -218,7 +218,7 @@ export async function removeMovieToWatchlist(req, res) {
     const userId = req.user.id;
 
     if (!mongoose.Types.ObjectId.isValid(movieId)) {
-      return res.status(400),json({
+      return res.status(400).json({
         error: "Invalid movieId format"
       })
     }
