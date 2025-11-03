@@ -78,7 +78,10 @@ export async function syncSingleMovie(req, res) {
       { upsert: true, new: true}
     );
 
-    return res.status(200).json(movie);
+    return res.status(200).json({
+      message: "The movie synced succesfully",
+      movie
+    });
   } catch (error) {
     console.error('Error syncing single movie', error);
     return res.status(500).json({
